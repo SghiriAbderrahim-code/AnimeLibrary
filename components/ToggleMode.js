@@ -22,11 +22,11 @@ const ToggleMode = () => {
     <button
       onClick={toggleMode}
       type="button"
-      className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white "
+      className="relative rounded-full  p-1 text-[--first-gray] hover:text-[--theme-color] "
     >
       <span className="absolute -inset-1.5" />
       <span className="sr-only">View notifications</span>
-      {darkMode ? <MoonIcon aria-hidden="true" className=" size-6" /> : <SunIcon aria-hidden="true" className=" size-6 " />}
+      {darkMode ? <SunIcon aria-hidden="true" className=" size-6" /> : <MoonIcon aria-hidden="true" className=" size-6 " />}
     </button>
   );
 };

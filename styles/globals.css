@@ -3,7 +3,19 @@
 @tailwind utilities;
 
 
+body{
+    --bg-color: rgb(255, 255, 255);
+        --text-color: rgb(0, 0, 0);
+        --theme-color: rgb(0, 170, 170);
+        --first-gray: rgb(31, 31, 31);
+        --second-gray: rgb(221, 221, 221);
+}
 
-.dark{
-    --bg-color: black;
+.dark body{
+        --bg-color: black;
+        --text-color: white;
+        --theme-color: rgb(0, 216, 216);
+        --first-gray: rgb(199, 199, 199);
+        --second-gray: rgb(12, 12, 12);
+    
 }
