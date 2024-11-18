@@ -1,4 +1,4 @@
-// File: /home/user/AnimeLibrary/app/layout.js
+// File: C:\Users\abdelmounaim\OneDrive\Documents\GitHub\AnimeLibrary\app\layout.js
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
