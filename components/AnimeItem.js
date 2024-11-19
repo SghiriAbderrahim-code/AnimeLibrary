@@ -5,10 +5,10 @@ import { StarIcon } from '@heroicons/react/24/solid'
 const AnimeItem = ({ anime }) => (
   <Link href={`/anime/${anime.mal_id}`} key={anime.mal_id} aria-label={`${anime.title}`}>
   <div
-    className="relative border-[var(--gr)] aspect-[1/1.5] rounded overflow-hidden bg-gray-500 hover:opacity-75"
-    style={{ boxShadow: '0 0 5px var(--shadow)' }}
+    className="relative border-[--second-gray] aspect-[1/1.5] rounded overflow-hidden bg-[--second-gray]  hover:opacity-75"
+    style={{ boxShadow: '0 0 5px black' }}
   >
-    <div className="text-white absolute bg-gray-800 text-[var(--tx)] font-bold text-[.5rem] tracking-widest top-1 left-1 rounded-md py px-2 z-30">
+    <div className="text-white absolute font-bold text-[.5rem] tracking-widest top-1 left-1 rounded-md py px-2 z-30">
       {anime.type}
     </div>
 

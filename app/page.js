@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useState } from 'react';
-import Navbar from '@/components/Navbar';
+
 import AnimeList from '@/components/AnimeList';
 import { useAnimeStore } from '@/store/animeStore';
 import ErrPage from '@/components/ErrPage';
@@ -14,7 +14,7 @@ const Home = () => {
 
   return (
     <div>
-      <Navbar />
+      
       {!loading && animes.length === 0 && query && (
   <div className="text-center text-gray-500 mt-4">No results found for "{query}".</div>
 )}
