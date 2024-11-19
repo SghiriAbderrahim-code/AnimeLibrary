@@ -6,24 +6,35 @@ export const useAnimeStore = create((set,get) => ({
   page: 1,
   hasMore: true,
   error: false,
+  errormessage:{
+    status: 404,
+    text: 'not fond'
+  },
   loading: true,
+
   fetchAnimes: async () => {
     try {
       set((state) => ({
         loading: true
       }));
       const { page } = get(); 
-      const newAnimes = await fetchAnime(page);
+      const response = await fetchAnime(page);
       set((state) => ({
-        animes: [...state.animes, ...newAnimes],
-        hasMore: newAnimes.length > 0,
+        animes: [...state.animes, ...response.data],
+        hasMore: response.pagination.has_next_page,
         error: false,
         loading: false,
         page: state.page +1
       }));
     } catch (error) {
-      set({ error: true });
-      console.error("Error fetching anime:", error);
+      set((state)=>({
+        error: true,
+        errormessage:{
+          status: error.response.status,
+          text: error.response.statusText
+        }
+      }));
+      console.error(`${error.response.status} :: ${error.response.statusText}`);
     }
   }
 }));

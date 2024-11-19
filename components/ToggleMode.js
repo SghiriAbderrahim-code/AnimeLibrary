@@ -22,7 +22,7 @@ const ToggleMode = () => {
     <button
       onClick={toggleMode}
       type="button"
-      className="relative rounded-full  p-1 text-[--first-gray] hover:text-[--theme-color] "
+      className="relative rounded-full  p-1 text-[--first-gray] hover:bg-[--first-gray] hover:text-[--bg-color] "
     >
       <span className="absolute -inset-1.5" />
       <span className="sr-only">View notifications</span>

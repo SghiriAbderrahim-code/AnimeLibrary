@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import AnimeList from '@/components/AnimeList';
-import ToggleMode from '@/components/ToggleMode';
 import { useAnimeStore } from '@/store/animeStore';
 import ErrPage from '@/components/ErrPage';
 
