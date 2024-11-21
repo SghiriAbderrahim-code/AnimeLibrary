@@ -3,9 +3,8 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import ToggleMode from './ToggleMode'
 
 const navigation = [
-  { name: 'Home', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  { name: 'Home', href: '/', current: false },
+  { name: 'Search', href: '/search', current: false },
 ]
 
 function classNames(...classes) {

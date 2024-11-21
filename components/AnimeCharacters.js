@@ -29,8 +29,8 @@ const AnimeCharacters = ({ id }) => {
 
   return (
     <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-4">
-      {characters.map((char) => (
-        <CharacterItem key={char.character.mal_id} item={char} />
+      {characters.map((char, i) => (
+        <CharacterItem key={char.character.mal_id} item={char} index={i} />
       ))}
     </div>
   );

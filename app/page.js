@@ -1,27 +1,27 @@
 "use client"
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import AnimeList from '@/components/AnimeList';
 import { useAnimeStore } from '@/store/animeStore';
 import ErrPage from '@/components/ErrPage';
 
 const Home = () => {
-  const { animes, fetchAnimes, hasMore, error, loading } = useAnimeStore();
+  const { animes, fetchData, hasMore, error, loading } = useAnimeStore();
 
   useEffect(() => {
-    fetchAnimes();
-  }, [fetchAnimes]);
+    fetchData('top');
+  }, [fetchData]);
 
   return (
     <div>
-      
+
       {!loading && animes.length === 0 && query && (
-  <div className="text-center text-gray-500 mt-4">No results found for "{query}".</div>
-)}
+        <div className="text-center text-gray-500 mt-4">No results found for "{query}".</div>
+      )}
       {error ? (
         <ErrPage />
       ) : (
-        <AnimeList animes={animes} fetchMore={fetchAnimes} hasMore={hasMore} />
+        <AnimeList animes={animes} fetchMore={fetchData('top')} hasMore={hasMore} />
       )}
     </div>
   );

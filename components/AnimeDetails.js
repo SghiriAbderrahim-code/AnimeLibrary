@@ -11,7 +11,7 @@ const AnimeDetails = ({ id }) => {
   const [slide, setSlide] = useState(false);
 
   useEffect(() => {
-    const fetchAnime = async () => {
+    const fetchTopAnime = async () => {
       try {
         const { data } = await axios.get(`https://api.jikan.moe/v4/anime/${id}/full`);
         setAnime(data.data);
@@ -22,7 +22,7 @@ const AnimeDetails = ({ id }) => {
       }
     };
 
-    fetchAnime();
+    fetchTopAnime();
   }, [id]);
 
   if (loading) return <SpinnerLoading />;
@@ -34,11 +34,14 @@ const AnimeDetails = ({ id }) => {
       <div className="w-full grid grid-cols-3">
         <div className="border-[--second-gray] aspect-[1/1.5] h-4/5 place-self-center">
           <Image
-            src={anime.images.jpg.large_image_url}
+            src={anime.images.webp.large_image_url}
             width={225}
             height={385}
             alt={anime.title || 'Anime Image'}
             className="object-fill w-full h-full rounded"
+            placeholder="blur"
+            blurDataURL={anime.images.webp.small_image_url}
+
           />
         </div>
         <div className="col-span-2 p-1 self-center text-[--first-gray]">
@@ -49,7 +52,7 @@ const AnimeDetails = ({ id }) => {
           <p  >{`${anime.season || '????'} - ${anime.aired.prop.from.year || '????'
             }`}</p>
           <p  >{`${anime.type || '???'
-            } - ${anime.episodes || '??'} episodes - ${anime.rating.split(' - ')[1] || '????'
+            } - ${anime.episodes || '??'} episodes - ${anime.rating?.split(' - ')[1] || '????'
             }`}</p>
         </div>
       </div>
@@ -87,19 +90,19 @@ const AnimeDetails = ({ id }) => {
 
         <div className="grid grid-cols-2 p-4 gap-4">
           {[
-            { name: 'Source', value:  anime.source || '????' },
-            { name: 'Duration', value:  anime.duration || '?? ???' },
+            { name: 'Source', value: anime.source || '????' },
+            { name: 'Duration', value: anime.duration || '?? ???' },
             {
               name: 'Started in',
-              value: anime.aired.from.split('T')[0] || '????-??-??',
+              value: anime.aired?.from?.split('T')[0] || '????-??-??',
             },
             {
               name: 'Ended in',
-              value: anime.aired.to.split('T')[0] || '????-??-??',
+              value: anime.aired?.to?.split('T')[0] || '????-??-??',
             },
             {
               name: 'Studio',
-              value: anime.studios[0].name || '?????',
+              value: anime.studios[0]?.name || '?????',
             },
             { name: 'Episodes', value: anime.episodes || '????' },
           ].map((item, i) => (
@@ -113,24 +116,26 @@ const AnimeDetails = ({ id }) => {
         </div>
       </div>
 
-
-      <div className="w-full font-bold text-lg p-4 mt-4">
-        <h1>Trailer:</h1>
-        <div className="mx-auto mt-8 rounded border aspect-[16/9] lg:w-1/2 w-4/5 overflow-hidden">
-          <iframe
-            width="100%"
-            height="100%"
-            src={anime.trailer.embed_url || ''}
-            title={`${anime.title} Trailer`}
-            frameBorder="0"
-            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          ></iframe>
+      {(anime.trailer.embed_url) ?
+        <div className="w-full font-bold text-lg p-4 mt-4">
+          <h1>Trailer:</h1>
+          <div className="mx-auto mt-8 rounded border aspect-[16/9] lg:w-1/2 w-4/5 overflow-hidden">
+            <iframe
+              width="100%"
+              height="100%"
+              src={anime.trailer.embed_url || ''}
+              title={`${anime.title} Trailer`}
+              frameBorder="0"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
         </div>
-      </div>
+        : null}
 
 
-      
+
+
     </div>
   );
 };

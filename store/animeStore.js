@@ -1,5 +1,5 @@
 import {create} from 'zustand';
-import { fetchAnime } from '@/utils/fetchAnime';
+import { fetchTopAnime, fetchSearchAnime } from '@/utils/fetchAnime';
 
 export const useAnimeStore = create((set,get) => ({
   animes: [],
@@ -11,14 +11,26 @@ export const useAnimeStore = create((set,get) => ({
     text: 'not fond'
   },
   loading: true,
-
-  fetchAnimes: async () => {
+  query: '',
+  setQuery: (query) => set({ query }),
+  resetStor: ()=>{
+    set(() => ({
+      animes: [],
+      hasMore: true,
+      error: false,
+      loading: true,
+      query: '',
+      page: 1
+    }));
+  },
+  fetchData: async (fetchType) => {
     try {
-      set((state) => ({
+      set(() => ({
         loading: true
       }));
-      const { page } = get(); 
-      const response = await fetchAnime(page);
+      const { page, query } = get();
+      const fetchFunction = fetchType === 'search' ? fetchSearchAnime(page, query) : fetchTopAnime(page);
+      const response = await fetchFunction;
       set((state) => ({
         animes: [...state.animes, ...response.data],
         hasMore: response.pagination.has_next_page,

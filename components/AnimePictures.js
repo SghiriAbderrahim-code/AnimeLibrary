@@ -29,10 +29,10 @@ const AnimePictures = ({ id }) => {
 
   return (
     <div className="grid lg:grid-cols-7  sm:grid-cols-5 grid-cols-3 p-2 gap-2">
-      {pictures.map((pic, index) => (
-        <PictureItem key={index} picture={pic} />
+      {pictures.map((pic, i) => (
+        <PictureItem key={i} picture={pic} index={i} />
       ))}
-      
+
     </div>
   );
 };
