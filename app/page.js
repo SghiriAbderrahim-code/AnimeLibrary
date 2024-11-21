@@ -9,7 +9,7 @@ const Home = () => {
   const { animes, fetchData, hasMore, error, loading } = useAnimeStore();
 
   useEffect(() => {
-    fetchData('top');
+    fetchData();
   }, [fetchData]);
 
   return (
@@ -21,7 +21,7 @@ const Home = () => {
       {error ? (
         <ErrPage />
       ) : (
-        <AnimeList animes={animes} fetchMore={fetchData('top')} hasMore={hasMore} />
+        <AnimeList animes={animes} fetchMore={fetchData} hasMore={hasMore} />
       )}
     </div>
   );

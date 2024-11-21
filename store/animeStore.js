@@ -23,14 +23,14 @@ export const useAnimeStore = create((set,get) => ({
       page: 1
     }));
   },
-  fetchData: async (fetchType) => {
+  fetchData: async () => {
     try {
       set(() => ({
         loading: true
       }));
-      const { page, query } = get();
-      const fetchFunction = fetchType === 'search' ? fetchSearchAnime(page, query) : fetchTopAnime(page);
-      const response = await fetchFunction;
+      const { page } = get();
+      
+      const response = await fetchTopAnime(page);
       set((state) => ({
         animes: [...state.animes, ...response.data],
         hasMore: response.pagination.has_next_page,
