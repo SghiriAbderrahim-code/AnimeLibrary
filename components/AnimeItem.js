@@ -6,9 +6,8 @@ const AnimeItem = ({ anime, index }) => (
   <Link href={`/anime/${anime.mal_id}`} key={anime.mal_id} aria-label={`${anime.title}`}>
   <div
     className="relative border-[--second-gray] aspect-[1/1.5] rounded overflow-hidden bg-[--second-gray]  hover:opacity-75"
-    style={{ boxShadow: '0 0 5px black' }}
   >
-    <div className="text-white absolute font-bold text-[.5rem] tracking-widest top-1 left-1 rounded-md py px-2 z-30">
+    <div className="text-white bg-gray-700 absolute font-bold text-[.5rem] tracking-widest top-1 left-1 rounded-md py-1 px-3 z-30">
     {anime.type || 'Unknown'}
     </div>
 

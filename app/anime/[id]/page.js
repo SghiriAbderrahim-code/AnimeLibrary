@@ -21,7 +21,7 @@ const AnimePage = () => {
   }
   return (
     <div className="p-2 ">
-      <div className="flex sticky top-16 justify-evenly  border-[--second-gray] bg-[--bg-color] mb-2 border-b z-50 ">
+      <div className="flex sticky top-16 justify-evenly  border-[--second-gray] bg-[--bg-color] mb-2 border-b z-30 ">
         {tabs.map((tab) => (
           <button
             key={tab}

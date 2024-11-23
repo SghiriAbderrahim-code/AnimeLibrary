@@ -16,9 +16,9 @@ const SearchForm = ({ onSearch }) => {
         placeholder="Search Anime"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        className="border rounded p-2 flex-grow"
+        className="border rounded border-[--second-color] p-2 flex-grow bg-[--bg-color] text-[--text-color]"
       />
-      <button type="submit" className="bg-emerald-500 text-white px-4 rounded">
+      <button type="submit" className="bg-[--theme-color] text-white px-4 rounded font-bold">
         Search
       </button>
     </form>

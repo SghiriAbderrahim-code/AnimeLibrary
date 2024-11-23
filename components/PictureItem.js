@@ -29,7 +29,7 @@ const PictureItem = ({ picture, index }) => {
         blurDataURL={picture.webp.small_image_url}
         priority={index < 6}
       />
-      <div className="z-30 absolute bottom-1 right-2">
+      <div className="z-20 absolute bottom-1 right-2">
         <button onClick={() => download(fileUrl, filename)} className="bg-[--bg-color] p-1 rounded mt-2 font-semibold hover:bg-[--theme-color] text-[--text-color] hover:text-[--bg-color] hover:fill-[--bg-color]">
           <ArrowDownTrayIcon aria-hidden="true" className=" size-4" />
         </button>

@@ -14,7 +14,7 @@ body{
 .dark body{
         --bg-color: black;
         --text-color: white;
-        --theme-color: rgb(0, 216, 216);
+        --theme-color: rgb(0, 182, 182);
         --first-gray: rgb(199, 199, 199);
         --second-gray: rgb(12, 12, 12);
     

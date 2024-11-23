@@ -6,11 +6,11 @@ import { useAnimeStore } from '@/store/animeStore';
 import ErrPage from '@/components/ErrPage';
 
 const Home = () => {
-  const { animes, fetchData, hasMore, error, loading } = useAnimeStore();
+  const { animes, fetchTopAnimes, hasMore, error, loading } = useAnimeStore();
 
   useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+    fetchTopAnimes();
+  }, [fetchTopAnimes]);
 
   return (
     <div>
@@ -21,7 +21,7 @@ const Home = () => {
       {error ? (
         <ErrPage />
       ) : (
-        <AnimeList animes={animes} fetchMore={fetchData} hasMore={hasMore} />
+        <AnimeList animes={animes} fetchMore={fetchTopAnimes} hasMore={hasMore} />
       )}
     </div>
   );

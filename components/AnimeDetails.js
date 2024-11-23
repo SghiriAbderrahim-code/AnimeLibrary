@@ -80,7 +80,7 @@ const AnimeDetails = ({ id }) => {
           ].map((item, i) => (
             <div
               key={i}
-              className=" text-[--bg-color] bg-[--first-gray] px-4 rounded-full font-semibold lg:text-lg text-sm "
+              className=" text-[--bg-color] bg-[--first-gray] px-4 rounded-full font-semibold lg:text-lg text-sm whitespace-nowrap "
             >
               {item.name}
             </div>
