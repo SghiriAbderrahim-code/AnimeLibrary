@@ -55,7 +55,7 @@ export default function Example() {
                   <span className="sr-only">Open user menu</span>
                   <img
                     alt=""
-                    src="public\userPicture.jpg"
+                    src="userPicture.jpg"
                     className="size-8 rounded-full"
                   />
                 </MenuButton>
