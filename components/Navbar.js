@@ -55,7 +55,7 @@ export default function Example() {
                   <span className="sr-only">Open user menu</span>
                   <img
                     alt=""
-                    src="https://avatars.githubusercontent.com/u/188178211?v=4&size=64"
+                    src="public\userPicture.jpg"
                     className="size-8 rounded-full"
                   />
                 </MenuButton>
